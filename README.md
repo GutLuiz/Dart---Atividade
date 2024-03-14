@@ -90,13 +90,110 @@ double calcularCustoChamada(int duracao) {
 ```
 ## 7
 ```dart
+   import 'dart:io';
 
+void main() {
+  
+     double precoRefrigerante = 8.00;
+     double precoSalgado = 12.00;
+     double precoSorvete = 9.00;
+
+
+    stdout.write('Quantidade de refrigerantes: ');
+    int Refrigerante = int.parse(stdin.readLineSync()!);
+
+    stdout.write('Quantidade de salgados: ');
+    int Salgado = int.parse(stdin.readLineSync()!);
+
+    stdout.write('Quantidade de sorvetes: ');
+    int Sorvete = int.parse(stdin.readLineSync()!);
+
+ 
+    double totalPagar = (Refrigerante * precoRefrigerante) + (Salgado * precoSalgado) +
+    (Sorvete * precoSorvete);
+       
+
+ 
+    print('Total a pagar: R\$ ${totalPagar.toStringAsFixed(2)}');
+}
 ```
 ## 8
 ```dart
+import 'dart:io';
+
+
+double calcularTotal(int qtdRefrigerante, int qtdSalgado, int qtdSorvete) {
+   double precoRefrigerante = 8.00;
+   double precoSalgado = 12.00;
+   double precoSorvete = 9.00;
+
+  double total = (qtdRefrigerante * precoRefrigerante) +(qtdSalgado * precoSalgado) + (qtdSorvete * precoSorvete);
+      (qtdSorvete * precoSorvete);
+
+  return total;
+}
+
+double calcularValorPorPessoa(double total, int qtdPessoas) {
+  return total / qtdPessoas;
+}
+
+void main() {
+  stdout.write('Quantidade de refrigerantes: ');
+  int qtdRefrigerante = int.parse(stdin.readLineSync()!);
+
+  stdout.write('Quantidade de salgados: ');
+  int qtdSalgado = int.parse(stdin.readLineSync()!);
+
+  stdout.write('Quantidade de sorvetes: ');
+  int qtdSorvete = int.parse(stdin.readLineSync()!);
+
+  stdout.write('Quantidade de pessoas: ');
+  int qtdPessoas = int.parse(stdin.readLineSync()!);
+
+  double total = calcularTotal(qtdRefrigerante, qtdSalgado, qtdSorvete);
+  double valorPorPessoa = calcularValorPorPessoa(total, qtdPessoas);
+
+  print('Total a ser pago: R\$ ${total.toStringAsFixed(2)}');
+  print('Valor a ser pago por pessoa: R\$ ${valorPorPessoa.toStringAsFixed(2)}');
+}
 
 ```
 ## 9
 ```dart
+  import 'dart:io';
+
+void main() {
+  double precoCarroPopular = 90.00;
+  double precoCarroLuxo = 150.00;
+
+  stdout.write('Tipo de carro (popular ou luxo): ');
+  String Carro = stdin.readLineSync()!.toLowerCase();
+
+  stdout.write('Quantos dias de aluguel: ');
+  int diasAluguel = int.parse(stdin.readLineSync()!);
+
+  stdout.write('Quantos quilômetros foram percorridos: ');
+  int kmPercorrido = int.parse(stdin.readLineSync()!);
+
+  double precoTotal = 0.0;
+
+  if (Carro == 'popular') {
+    precoTotal += precoCarroPopular * diasAluguel;
+    if (kmPercorrido <= 100) {
+      precoTotal += kmPercorrido * 0.20;
+    } else {
+      precoTotal += (100 * 0.20) + ((kmPercorrido - 100) * 0.10);
+    }
+  } else if (Carro == 'luxo') {
+    precoTotal += precoCarroLuxo * diasAluguel;
+    if (kmPercorrido <= 200) {
+      precoTotal += kmPercorrido * 0.30;
+    } else {
+      precoTotal += (200 * 0.30) + ((kmPercorrido - 200) * 0.25);
+    }
+  }
+
+  print('O preço a ser pago é R\$ ${precoTotal.toStringAsFixed(2)}');
+}
 
 ```
